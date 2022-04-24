@@ -1,12 +1,23 @@
 <template>
-  <div class="r rsm fic mb6x">
+  <div class="r rsm mb6x">
     <div class="c12">
       <store-meta class="mb2x"></store-meta>
     </div>
+    <div v-if="showBackButton" class="ca">
+      <b-button-icon
+        name="arrow-left"
+        :class="{ mt1x: subTitle }"
+        @click.prevent="$router.back()"
+      ></b-button-icon>
+    </div>
     <div class="c">
       <slot name="left">
-        <h1>{{ title }}</h1>
+        <h1 v-if="title">{{ title }}</h1>
+        <p v-if="subTitle" class="fw6 cg6 fs2xl">{{ subTitle }}</p>
       </slot>
+    </div>
+    <div v-if="$slots.default" class="ca">
+      <slot></slot>
     </div>
     <div class="ca">
       <b-button
@@ -30,6 +41,14 @@ export default Vue.extend({
     title: {
       type: String,
       default: '',
+    },
+    subTitle: {
+      type: String,
+      default: '',
+    },
+    showBackButton: {
+      type: Boolean,
+      default: false,
     },
   },
 })

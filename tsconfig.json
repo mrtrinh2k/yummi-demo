@@ -16,11 +16,12 @@
       "@/*": ["./*"]
     },
     "types": [
-      "@nuxt/types",
       "@nuxtjs/axios",
       "@types/node",
       "@types/lodash",
-      "@nuxtjs/i18n"
+      "@nuxt/types",
+      "@nuxtjs/i18n",
+      "@nuxtjs/auth-next"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

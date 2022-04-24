@@ -9,3 +9,13 @@ export const getStatusText = (status: number): string => {
     ''
   )
 }
+
+export const getStatusType = (status: number): string => {
+  return (
+    (status === OrderStatus.New && 'blue') ||
+    (status === OrderStatus.Approved && 'teal') ||
+    (status === OrderStatus.Delivering && 'orange') ||
+    (status === OrderStatus.Delivered && 'green') ||
+    'grey'
+  )
+}
