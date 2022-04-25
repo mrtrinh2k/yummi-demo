@@ -140,6 +140,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { getStatusText, getStatusType } from '~/utils'
+import { OrderDetail } from '~/models/order'
 export default Vue.extend({
   meta: {
     breadcrumb: 'Order Details',
@@ -147,11 +148,13 @@ export default Vue.extend({
   async asyncData({ params, $services, error }) {
     try {
       const entity = await $services.order.getOrder(params.id)
-      console.log(entity)
       return { entity }
     } catch (_) {
       return error({ statusCode: 404, message: 'Order not found' })
     }
+  },
+  data() {
+    return { entity: {} as OrderDetail}
   },
   computed: {
     formatDeliveryAddress() {

@@ -1,8 +1,8 @@
 <template>
-  <div class="r rsm mb6x">
-    <div class="c12">
+  <div class="r rsm mb6x fic">
+    <!-- <div class="c12">
       <store-meta class="mb2x"></store-meta>
-    </div>
+    </div> -->
     <div v-if="showBackButton" class="ca">
       <b-button-icon
         name="arrow-left"
@@ -19,7 +19,7 @@
     <div v-if="$slots.default" class="ca">
       <slot></slot>
     </div>
-    <div class="ca">
+    <div v-if="hideOrderButton" class="ca">
       <b-button
         primary
         small
@@ -50,6 +50,10 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    hideOrderButton: {
+      type: Boolean,
+      default: false,
+    }
   },
 })
 </script>

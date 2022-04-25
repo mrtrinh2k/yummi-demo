@@ -1,6 +1,7 @@
 <template>
   <div
-    class="por bgg2 bdrmax ovh hv:bgg3 fc:bgg4 csp tsa025s"
+    class="por bgg2 ovh hv:bgg3 fc:bgg4 csp tsa025s"
+    :class="[rounded ? 'bdrmax' : 'bdrmd']"
     @click="handleClick"
   >
     <div class="df py2x pl3x pr2x fic por z1">
@@ -69,6 +70,10 @@ export default Vue.extend({
     initialValue: {
       type: [String, Array, Number, Boolean],
       default: '',
+    },
+    rounded: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
